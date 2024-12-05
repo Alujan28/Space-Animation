@@ -1,8 +1,12 @@
 const canvas = document.getElementById('spaceCanvas');
 const ctx = canvas.getContext('2d');
 
-canvas.width = window.innerWidth;
-canvas.height = window.innerHeight;
+function resizeCanvas() {
+    canvas.width = window.innerWidth;
+    canvas.height = window.innerHeight;
+}
+
+resizeCanvas();  
 
 const celestialObjects = [];
 const particles = [];
@@ -194,12 +198,10 @@ for (let i = 0; i < 5; i++) {
     createCelestialObject('galaxy');
     createCelestialObject('cluster');
     createCelestialObject('nebula');
-    createCelestialObject('bigbank'); 
+    createCelestialObject('bigbank');
 }
 
 animate();
 
-window.addEventListener('resize', () => {
-    canvas.width = window.innerWidth;
-    canvas.height = window.innerHeight;
-});
+
+window.addEventListener('resize', resizeCanvas);
